@@ -12,7 +12,7 @@ class AuthorsTypeConverter @Inject constructor() {
     }
 
     @TypeConverter
-    fun toTags(authors: String): List<String> {
+    fun toAuthors(authors: String): List<String> {
         return Json.decodeFromString<List<String>>(authors)
     }
 }
