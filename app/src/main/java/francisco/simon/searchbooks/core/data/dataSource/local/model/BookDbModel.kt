@@ -6,9 +6,9 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "books")
 data class BookDbModel(
     @PrimaryKey val id: String,
-    val author: String,
+    val author: List<String>,
     val isFavourite: Boolean,
-    val imageUrl: String,
+    val imageUrl: String?,
     val title: String,
     val description: String
 )

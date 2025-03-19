@@ -16,6 +16,8 @@ dagger2_version = "2.55"
 coil_version = "3.0.4"
 okHttpClient_version = "4.12.0"
 retrofit_version = "2.11.0"
+json_version = "1.8.0"
+
 
 
 [libraries]
@@ -51,12 +53,15 @@ httpLoggingInterceptor = { group = "com.squareup.okhttp3", name = "logging-inter
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit_version" }
 retrofit2GsonConverter = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit_version" }
 
+json-serialization = {group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "json_version"}
+
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp_version" }
-kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 
 [bundles]
 compose = [

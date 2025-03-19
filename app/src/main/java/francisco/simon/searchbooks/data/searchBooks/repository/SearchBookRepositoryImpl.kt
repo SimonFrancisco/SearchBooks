@@ -10,8 +10,9 @@ import francisco.simon.searchbooks.data.searchBooks.mappers.toEntity
 import francisco.simon.searchbooks.domain.searchBook.entity.Book
 import francisco.simon.searchbooks.domain.searchBook.repository.SearchBookRepository
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
 
-class SearchRepositoryImpl(
+class SearchBookRepositoryImpl @Inject constructor(
     private val remoteDataSource: BookRemoteDataSource,
     private val localDataSource: BookDao
 ) : SearchBookRepository {
@@ -19,7 +20,7 @@ class SearchRepositoryImpl(
     override suspend fun searchBooks(query: String): OperationResult<List<Book>> {
         return remoteDataSource.searchBook(query).flatMapIfSuccess { bookResponseDto ->
             bookResponseDto.books.map {
-                    it.toEntity()
+                it.toEntity()
             }.toSuccessResult()
         }
     }

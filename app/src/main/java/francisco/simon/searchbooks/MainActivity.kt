@@ -9,6 +9,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import francisco.simon.searchbooks.presentation.searchBooks.components.SearchBookScreen
 import francisco.simon.searchbooks.ui.theme.SearchBooksTheme
 
 class MainActivity : ComponentActivity() {
@@ -21,6 +22,7 @@ class MainActivity : ComponentActivity() {
                         name = "Android",
                         modifier = Modifier.padding(innerPadding)
                     )
+                    SearchBookScreen()
                 }
             }
         }

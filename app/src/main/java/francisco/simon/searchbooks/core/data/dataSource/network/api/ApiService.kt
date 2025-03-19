@@ -7,13 +7,13 @@ import retrofit2.http.Query
 
 interface ApiService {
 
-    @GET("volumes?printType=books")
+    @GET("volumes?printType=books&langRestrict=en")
     suspend fun searchPosts(
         @Query("q") query: String,
         @Query("maxResults") numberOfResults: Int = MAX_NUMBERS_OF_BOOK_PER_QUERY
     ): Response<BookResponseDto>
 
     companion object {
-        private const val MAX_NUMBERS_OF_BOOK_PER_QUERY = 100
+        private const val MAX_NUMBERS_OF_BOOK_PER_QUERY = 40
     }
 }

@@ -19,11 +19,11 @@ internal fun Book.toDb(): BookDbModel {
 internal fun BookDto.toEntity(): Book {
     return Book(
         id = id,
-        author = volumeInfo.authors.joinToString(","),
+        author = volumeInfo.authors ?: emptyList(),
         isFavourite = false,
-        imageUrl = volumeInfo.imageUrl.imageUrl,
-        description = volumeInfo.description,
-        title = volumeInfo.title
+        imageUrl = volumeInfo.imageUrl?.imageUrl,
+        description = volumeInfo.description ?: "",
+        title = volumeInfo.title ?: ""
     )
 }
 

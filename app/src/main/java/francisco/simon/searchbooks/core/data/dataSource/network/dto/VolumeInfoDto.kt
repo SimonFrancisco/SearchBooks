@@ -4,11 +4,11 @@ import com.google.gson.annotations.SerializedName
 
 data class VolumeInfoDto(
     @SerializedName("title")
-    val title: String,
+    val title: String?,
     @SerializedName("authors")
-    val authors: List<String>,
+    val authors: List<String>?,
     @SerializedName("description")
-    val description: String,
+    val description: String?,
     @SerializedName("imageLinks")
-    val imageUrl: ImageUrlDto
+    val imageUrl: ImageUrlDto?
 )

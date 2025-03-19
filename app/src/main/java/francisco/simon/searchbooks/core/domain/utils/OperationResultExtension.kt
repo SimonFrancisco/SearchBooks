@@ -1,5 +1,6 @@
 package francisco.simon.searchbooks.core.domain.utils
 
+
 fun <In, Out> OperationResult<In>.flatMapIfSuccess(
     block: (In) -> OperationResult<Out>
 ): OperationResult<Out> {
@@ -8,5 +9,4 @@ fun <In, Out> OperationResult<In>.flatMapIfSuccess(
         is OperationResult.Error -> OperationResult.Error(this.message)
     }
 }
-
 fun <T> T.toSuccessResult(): OperationResult.Success<T> = OperationResult.Success(this)
