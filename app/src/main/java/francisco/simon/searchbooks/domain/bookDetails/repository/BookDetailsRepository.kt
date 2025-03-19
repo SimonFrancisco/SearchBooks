@@ -5,7 +5,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface BookDetailsRepository {
 
-    fun getBookById(bookId: Int): Flow<Book>
+    fun getBookById(bookId: String): Flow<Book>
 
     suspend fun addBookToFavourites(book: Book)
 

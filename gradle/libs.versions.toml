@@ -49,6 +49,7 @@ okHttpClient = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = 
 httpLoggingInterceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okHttpClient_version" }
 
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit_version" }
+retrofit2GsonConverter = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit_version" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -84,4 +85,8 @@ coil = [
 http = [
     "okHttpClient",
     "httpLoggingInterceptor"
+]
+retrofit = [
+    "retrofit",
+    "retrofit2GsonConverter"
 ]

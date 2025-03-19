@@ -1,7 +1,7 @@
 package francisco.simon.searchbooks.domain.searchBook.entity
 
 data class Book(
-    val id: Int,
+    val id: String,
     val author: String,
     val isFavourite: Boolean,
     val imageUrl: String,

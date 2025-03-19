@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.Flow
 class GetBookByIdUseCase(
     private val repository: BookDetailsRepository
 ) {
-    operator fun invoke(bookId: Int): Flow<Book> {
+    operator fun invoke(bookId: String): Flow<Book> {
         return repository.getBookById(bookId)
     }
 }
