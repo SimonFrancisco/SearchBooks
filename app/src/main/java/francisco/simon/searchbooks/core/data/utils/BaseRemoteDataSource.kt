@@ -1,5 +1,6 @@
 package francisco.simon.searchbooks.core.data.utils
 
+import francisco.simon.searchbooks.core.domain.utils.OperationResult
 import kotlinx.coroutines.ensureActive
 import retrofit2.Response
 import kotlin.coroutines.coroutineContext

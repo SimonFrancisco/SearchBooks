@@ -6,4 +6,5 @@ data class Book(
     val isFavourite: Boolean,
     val imageUrl: String,
     val title: String,
+    val description: String
 )

@@ -7,8 +7,9 @@ interface BookDetailsRepository {
 
     fun getBookById(bookId: String): Flow<Book>
 
-    suspend fun addBookToFavourites(book: Book)
+    suspend fun addToFavourite(book: Book)
 
-    suspend fun removeBookFromFavourites(book: Book)
+    suspend fun removeFromFavourite(bookId: String)
+
 
 }
