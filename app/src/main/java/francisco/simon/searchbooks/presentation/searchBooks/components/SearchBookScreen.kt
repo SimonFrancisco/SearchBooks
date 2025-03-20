@@ -1,6 +1,7 @@
 package francisco.simon.searchbooks.presentation.searchBooks.components
 
 import android.util.Log
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -9,19 +10,27 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import francisco.simon.searchbooks.R
 import francisco.simon.searchbooks.domain.searchBook.entity.Book
 import francisco.simon.searchbooks.presentation.getApplicationComponent
 import francisco.simon.searchbooks.presentation.searchBooks.SearchBookScreenState
 import francisco.simon.searchbooks.presentation.searchBooks.SearchBookViewModel
 import francisco.simon.searchbooks.ui.theme.Black
+import francisco.simon.searchbooks.ui.theme.BrightSkyBlue
+import francisco.simon.searchbooks.ui.theme.White
 
 @Composable
 fun SearchBookScreen(
@@ -47,7 +56,8 @@ fun SearchBookScreen(
                 onBookClicked = onBookClicked,
                 onFavouriteClicked = {
                     viewModel.changeLikeStatus(book = it)
-                }
+                },
+                viewModel = viewModel
             )
         }
     }
@@ -59,7 +69,8 @@ fun SearchBookScreen(
 fun SearchBookScreenContent(
     screenState: State<SearchBookScreenState>,
     onFavouriteClicked: (Book) -> Unit,
-    onBookClicked: (Book) -> Unit
+    onBookClicked: (Book) -> Unit,
+    viewModel: SearchBookViewModel
 ) {
     when (val currentState = screenState.value) {
         is SearchBookScreenState.Books -> {
@@ -73,11 +84,40 @@ fun SearchBookScreenContent(
         }
 
         SearchBookScreenState.Error -> {
-            Log.d("SearchBookScreen", "Error")
+            Box(
+                modifier = Modifier.fillMaxSize(),
+                contentAlignment = Alignment.Center
+            ) {
+                Column(horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center){
+                    Text(text = stringResource(R.string.query_error)
+                    , textAlign = TextAlign.Center)
+                    Spacer(modifier = Modifier.height(4.dp))
+                    Button(
+                        onClick = {
+                            viewModel.onRepeatSearch()
+                        },
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = BrightSkyBlue
+                        )
+                    ) {
+                        Text(text = stringResource(R.string.try_again),
+                            color = White)
+                    }
+                }
+            }
 
         }
 
         SearchBookScreenState.Initial -> {
+            Box(
+                modifier = Modifier.fillMaxSize(),
+                contentAlignment = Alignment.Center
+            ) {
+                Text(
+                    text = stringResource(R.string.find_book)
+                )
+            }
 
         }
 
@@ -93,7 +133,14 @@ fun SearchBookScreenContent(
         }
 
         SearchBookScreenState.NothingFound -> {
-
+            Box(
+                modifier = Modifier.fillMaxSize(),
+                contentAlignment = Alignment.Center
+            ) {
+                Text(
+                    text = stringResource(R.string.nothing_found)
+                )
+            }
         }
     }
 }

@@ -12,7 +12,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
@@ -87,18 +86,6 @@ class SearchBookViewModel @Inject constructor(
                     if (result.data.isEmpty()) {
                         _state.emit(SearchBookScreenState.NothingFound)
                     } else {
-//                        val newListOfBooks = result.data.toMutableList()
-//                        for (book in result.data){
-//                            if (observeIsFavouriteUseCase(bookId = book.id).first()){
-//                                newListOfBooks.replaceAll { oldBook->
-//                                    if (oldBook == book) {
-//                                        oldBook.copy(isFavourite = true)
-//                                    } else {
-//                                        oldBook
-//                                    }
-//                                }
-//                            }
-//                        }
                         _state.emit(SearchBookScreenState.Books(result.data))
                     }
                 } else if (result is OperationResult.Error) {

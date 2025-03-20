@@ -1,6 +1,5 @@
-package francisco.simon.searchbooks.presentation.favouriteBooks
+package francisco.simon.searchbooks.presentation.favouriteBooks.components
 
-import android.util.Log
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -15,6 +14,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
 import androidx.compose.runtime.collectAsState
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -23,6 +23,8 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import francisco.simon.searchbooks.R
 import francisco.simon.searchbooks.domain.favouriteBooks.entity.Book
+import francisco.simon.searchbooks.presentation.favouriteBooks.FavouriteBooksViewModel
+import francisco.simon.searchbooks.presentation.favouriteBooks.FavouriteScreenState
 import francisco.simon.searchbooks.presentation.getApplicationComponent
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -82,7 +84,6 @@ fun FavouriteBookScreenContent(
                 onBookClicked = onBookClicked,
                 onFavouriteClicked = onFavouriteClicked
             )
-            Log.d("FavouriteScreenState", currentState.books.toString())
 
         }
 
@@ -91,7 +92,14 @@ fun FavouriteBookScreenContent(
         }
 
         FavouriteScreenState.NothingFound -> {
-
+            Box(
+                modifier = Modifier.fillMaxSize(),
+                contentAlignment = Alignment.Center
+            ) {
+                Text(
+                    text = stringResource(R.string.no_books)
+                )
+            }
         }
     }
 }

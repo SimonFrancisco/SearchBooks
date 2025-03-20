@@ -19,7 +19,7 @@ import francisco.simon.searchbooks.core.navigation.NavigationState
 import francisco.simon.searchbooks.core.navigation.rememberNavigationState
 import francisco.simon.searchbooks.core.presentation.utils.toBookDetails
 import francisco.simon.searchbooks.presentation.bookDetails.BookDetailsScreen
-import francisco.simon.searchbooks.presentation.favouriteBooks.FavouriteBookScreen
+import francisco.simon.searchbooks.presentation.favouriteBooks.components.FavouriteBookScreen
 import francisco.simon.searchbooks.presentation.searchBooks.components.SearchBookScreen
 import francisco.simon.searchbooks.ui.theme.BrightSkyBlue
 import francisco.simon.searchbooks.ui.theme.LightGray

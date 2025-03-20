@@ -1,4 +1,4 @@
-package francisco.simon.searchbooks.presentation.favouriteBooks
+package francisco.simon.searchbooks.presentation.favouriteBooks.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues

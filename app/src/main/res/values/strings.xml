@@ -4,4 +4,9 @@
     <string name="favourite_book_bottom_bar_label">Избранное</string>
     <string name="search_bar_label">Поиск</string>
     <string name="favourite_topBar_label">Избранное</string>
+    <string name="find_book">"Введите название книги, которую ищете "</string>
+    <string name="try_again">Попробовать ещё</string>
+    <string name="nothing_found">По вашему запросу ничего не найдено</string>
+    <string name="query_error">Ошибка выполнения запроса, попробуйте повторить</string>
+    <string name="no_books">Нет книг</string>
 </resources>

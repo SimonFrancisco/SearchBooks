@@ -1,7 +1,6 @@
 package francisco.simon.searchbooks.data.bookDetails.repository
 
 import francisco.simon.searchbooks.core.data.dataSource.local.db.BookDao
-import francisco.simon.searchbooks.core.data.dataSource.network.api.ApiService
 import francisco.simon.searchbooks.data.bookDetails.mapper.toBook
 import francisco.simon.searchbooks.data.bookDetails.mapper.toDb
 import francisco.simon.searchbooks.domain.bookDetails.entity.Book
