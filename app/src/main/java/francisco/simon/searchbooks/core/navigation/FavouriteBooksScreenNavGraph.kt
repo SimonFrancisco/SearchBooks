@@ -14,7 +14,7 @@ fun NavGraphBuilder.favouriteBookNavGraph(
 ) {
     navigation(
         startDestination = Screen.Favourite.route,
-        route = Screen.Favourite.route
+        route = Screen.HomeFavourite.route
     ) {
         composable(Screen.Favourite.route) {
             favouriteBooksContentScreen()

@@ -8,6 +8,7 @@ sealed class Screen(
     val route: String
 ) {
     data object Home : Screen(ROUTE_HOME)
+    data object HomeFavourite:Screen(ROUTE_HOME_FAVOURITE)
     data object SearchBook : Screen(ROUTE_SEARCH_BOOK)
     data object Favourite : Screen(ROUTE_FAVOURITE)
     data object BookDetails : Screen(ROUTE_BOOK_DETAILS) {
@@ -24,6 +25,7 @@ sealed class Screen(
         const val ROUTE_BOOK_DETAILS = "book_details/{$KEY_BOOK}"
         const val ROUTE_SEARCH_BOOK = "search_book"
         const val ROUTE_FAVOURITE = "favourite"
+        const val ROUTE_HOME_FAVOURITE ="home_favourite"
     }
 }
 

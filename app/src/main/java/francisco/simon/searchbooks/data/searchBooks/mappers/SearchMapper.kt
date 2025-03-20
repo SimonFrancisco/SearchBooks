@@ -4,6 +4,7 @@ import francisco.simon.searchbooks.core.data.dataSource.local.model.BookDbModel
 import francisco.simon.searchbooks.core.data.dataSource.network.dto.BookDto
 import francisco.simon.searchbooks.domain.searchBook.entity.Book
 
+
 internal fun Book.toDb(): BookDbModel {
     return BookDbModel(
         id = id,
@@ -19,11 +20,12 @@ internal fun Book.toDb(): BookDbModel {
 internal fun BookDto.toEntity(): Book {
     return Book(
         id = id,
-        author = volumeInfo.authors ?: emptyList(),
+        author = volumeInfo.authors ?: listOf("No authors"),
         isFavourite = false,
         imageUrl = volumeInfo.imageUrl?.imageUrl,
         description = volumeInfo.description ?: "",
-        title = volumeInfo.title ?: ""
+        title = volumeInfo.title ?: "No Title"
     )
 }
+
 
