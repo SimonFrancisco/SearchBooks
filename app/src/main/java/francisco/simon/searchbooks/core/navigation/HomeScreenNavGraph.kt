@@ -32,5 +32,6 @@ fun NavGraphBuilder.homeScreenNavGraph(
             } ?: throw RuntimeException("Args is null")
             bookDetailsScreenContent(book)
         }
+
     }
 }

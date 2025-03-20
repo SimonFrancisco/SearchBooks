@@ -18,6 +18,7 @@ import francisco.simon.searchbooks.core.navigation.AppNavGraph
 import francisco.simon.searchbooks.core.navigation.NavigationState
 import francisco.simon.searchbooks.core.navigation.rememberNavigationState
 import francisco.simon.searchbooks.core.presentation.utils.toBookDetails
+import francisco.simon.searchbooks.presentation.bookDetails.BookDetailsScreen
 import francisco.simon.searchbooks.presentation.favouriteBooks.FavouriteBookScreen
 import francisco.simon.searchbooks.presentation.searchBooks.components.SearchBookScreen
 import francisco.simon.searchbooks.ui.theme.BrightSkyBlue
@@ -26,10 +27,18 @@ import francisco.simon.searchbooks.ui.theme.White
 
 @Composable
 fun MainScreen() {
+
+    val items = listOf(NavigationItem.Search.screen.route, NavigationItem.Favourite.screen.route)
     val navigationState = rememberNavigationState()
+    val currentRouteStackEntry by navigationState.navHostController.currentBackStackEntryAsState()
+    val currentRoute = currentRouteStackEntry?.destination?.route
+    val showBottomBar = currentRoute in items
+
     Scaffold(
         bottomBar = {
-            BottomBar(navigationState)
+            if (showBottomBar){
+                BottomBar(navigationState)
+            }
         }
     ) { paddingValues ->
         AppNavGraph(
@@ -49,7 +58,12 @@ fun MainScreen() {
                 })
             },
             bookDetailsScreenContent = {
-
+                BookDetailsScreen(
+                    book = it,
+                    onBackPressed = {
+                        navigationState.navHostController.popBackStack()
+                    }
+                )
             }
         )
     }
@@ -65,7 +79,7 @@ private fun BottomBar(navigationState: NavigationState) {
         containerColor = White
     ) {
         val navBackStackEntry by navigationState.navHostController.currentBackStackEntryAsState()
-        val items = listOf(NavigationItem.Home, NavigationItem.Favourite)
+        val items = listOf(NavigationItem.Search, NavigationItem.Favourite)
         items.forEach { item ->
             val selected = navBackStackEntry?.destination?.hierarchy?.any {
                 it.route == item.screen.route
@@ -87,7 +101,7 @@ private fun BottomBar(navigationState: NavigationState) {
                     }
                 },
                 icon = {
-                    Icon(imageVector = item.icon, contentDescription = null)
+                    Icon(imageVector = item.icon, contentDescription = null, tint = BrightSkyBlue)
                 },
                 label = {
                     Text(text = stringResource(id = item.titleResId))

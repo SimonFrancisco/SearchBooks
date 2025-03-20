@@ -10,6 +10,7 @@ import francisco.simon.searchbooks.presentation.ViewModelFactory
 interface ApplicationComponent {
 
     fun getViewModelFactory(): ViewModelFactory
+    fun getBookDetailsFactory(): BookDetailsComponent.Factory
 
     @Component.Factory
     interface Factory {

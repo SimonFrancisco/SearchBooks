@@ -5,10 +5,10 @@ import dagger.Subcomponent
 import francisco.simon.searchbooks.domain.bookDetails.entity.Book
 import francisco.simon.searchbooks.presentation.ViewModelFactory
 
-@Subcomponent
+@Subcomponent(modules = [BookDetailsViewModelModule::class])
 interface BookDetailsComponent {
 
-    //fun getViewModelFactory(): ViewModelFactory
+    fun getViewModelFactory(): ViewModelFactory
 
     @Subcomponent.Factory
     interface Factory {

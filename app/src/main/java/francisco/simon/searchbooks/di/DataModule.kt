@@ -8,8 +8,10 @@ import francisco.simon.searchbooks.core.data.dataSource.local.db.BookDao
 import francisco.simon.searchbooks.core.data.dataSource.local.db.BookDataBase
 import francisco.simon.searchbooks.core.data.dataSource.network.api.ApiFactory
 import francisco.simon.searchbooks.core.data.dataSource.network.api.ApiService
+import francisco.simon.searchbooks.data.bookDetails.repository.BookDetailsRepositoryImpl
 import francisco.simon.searchbooks.data.favouriteBooks.repository.FavouriteBooksRepositoryImpl
 import francisco.simon.searchbooks.data.searchBooks.repository.SearchBookRepositoryImpl
+import francisco.simon.searchbooks.domain.bookDetails.repository.BookDetailsRepository
 import francisco.simon.searchbooks.domain.favouriteBooks.repository.FavouriteBookRepository
 import francisco.simon.searchbooks.domain.searchBook.repository.SearchBookRepository
 
@@ -21,6 +23,9 @@ interface DataModule {
 
     @[Binds ApplicationScope]
     fun bindFavouriteBooksRepository(impl: FavouriteBooksRepositoryImpl): FavouriteBookRepository
+
+    @[Binds ApplicationScope]
+    fun bindBookDetailsRepository(impl: BookDetailsRepositoryImpl): BookDetailsRepository
 
     companion object {
 
